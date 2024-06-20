@@ -1,6 +1,6 @@
 ---
 import Footer from '../components/Footer.astro';
-import Navigation from '../components/Navigation.astro';
+import Header from '../components/Header.astro';
 import Hamburger from '../components/Hamburger.astro';
 import "../styles/global.css";
 const { pageTitle } = Astro.props;
@@ -13,12 +13,11 @@ const { pageTitle } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<nav>
-			<Hamburger />
-			<Navigation />
 		</nav>
 		<title>{pageTitle}</title>
 	</head>
 	<body>
+		<Header/>
 		<h1>{pageTitle}</h1>
 		<slot/>
 		<Footer />
