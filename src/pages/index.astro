@@ -1,6 +1,8 @@
 ---
-import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
+import Navigation from '../components/Navigation.astro';
+import Hamburger from '../components/Hamburger.astro';
+import "../styles/global.css";
 ---
 
 <html lang="en">
@@ -9,18 +11,18 @@ import Footer from '../components/Footer.astro';
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
+		<nav>
+			<Hamburger />
+			<Navigation />
+		</nav>
 		<title>Astro</title>
-		
 	</head>
 	<body>
-		<Navigation />
 		<h1>Astro</h1>
 		<p>hahaha</p>
 		<Footer />
 		<script>
-			document.querySelector('.hamburger').addEventListener('click', () => {
-			  document.querySelector('.nav-links').classList.toggle('expanded');
-			});
-		  </script>
+			import "../scripts/menu.js";
+		</script>
 	</body>
 </html>
