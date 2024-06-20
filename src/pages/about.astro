@@ -1,30 +1,18 @@
 ---
-import '../styles/global.css';
-const pageTitle = "About Me";
+import BaseLayout from '../layouts/BaseLayout.astro';
+const pageTitle = "About Page";
 
 const identity = {
-  firstName: "Sarah",
-  country: "Canada",
-  occupation: "Technical Writer",
-  hobbies: ["photography", "birdwatching", "baseball"],
+  firstName: "Justin",
+  country: "Taiwan, Taipei",
+  occupation: "Full-stack developer",
+  hobbies: ["workout", "basketball", "photography"],
 };
 
 const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
 
-
-const skillColor = "navy";
 ---
-<style define:vars={{skillColor}}>
-    h1 {
-      color: purple;
-      font-size: 4rem;
-    }
-    .skill {
-      color: green;
-      color: var(--skillColor);
-      font-weight: bold;
-    }
-  </style>
+<BaseLayout pageTitle={pageTitle}>
 <p>Here are a few facts about me:</p>
 <ul>
   <li>My name is {identity.firstName}.</li>
@@ -37,3 +25,4 @@ const skillColor = "navy";
 <ul>
   {skills.map((skill) => <li>{skill}</li>)}
 </ul>
+</BaseLayout>
