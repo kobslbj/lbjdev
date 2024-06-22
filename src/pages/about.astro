@@ -1,29 +1,46 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-const pageTitle = "About Me ";
-const happy = true;
-const finished = true;
-const identity = {
-  firstName: "Justin",
-  country: "Taiwan, Taipei",
-  occupation: "Full-stack developer",
-  hobbies: ["workout", "basketball", "photography"],
-};
-
-const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
-
+import { Image } from 'astro:assets';
+import Lndatalogo from '../assets/lndata_logo.jpg';
+import AppWorksSchool from '../assets/appworks.png';
+const pageTitle = "About Me";
 ---
+
 <BaseLayout pageTitle={pageTitle}>
-<p>Here are a few facts about me:</p>
-<ul>
-  <li>My name is {identity.firstName}.</li>
-  <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
-  {identity.hobbies.length >= 2 &&
-    <li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
-  }
-</ul>
-<p>My skills are:</p>
-<ul>
-  {skills.map((skill) => <li>{skill}</li>)}
-</ul>
+  <p class="font-bold text-[2rem] text-shadow mb-[1rem]">About me</p>
+  <p class="text-[1.2rem] text-[#bdbdbd] mb-[3rem]">
+    Hi, I'm Justin. I'm a full-stack engineer, especially love frontend development. 
+    I enjoy sharing what I have learned, which is why I started this blog. 
+    I hope it can help everyone. Feel free to join the discussion!
+  </p>
+  <p class="font-bold text-[2rem] text-shadow mb-[1rem]">Experience</p>
+  <div class="flex flex-col gap-6">
+    <div class="flex justify-between items-center">
+      <div class="text-[1rem] sm:text-[1.2rem] flex items-center gap-3">
+        <Image src={Lndatalogo} alt="LnData" class="w-[3rem] h-[3rem] rounded-full" />
+        LnData web development intern 
+      </div>
+       <div class="text-[1rem] sm:text-[1.2rem] text-[#bdbdbd]">
+        Jan 2024 – Now
+      </div>
+    </div>
+    <div class="flex justify-between items-center">
+      <div class="text-[1rem] sm:text-[1.2rem] flex items-center gap-3">
+        <Image src={AppWorksSchool} alt="AppWorks School" class="w-[3rem] h-[3rem] rounded-full" />
+        AppWorks School Campus Backend trainee
+      </div>
+      <div class="text-[1rem] sm:text-[1.2rem] text-[#bdbdbd]">
+        Sep 2023 – Jan 2024
+      </div>
+    </div>
+    <div class="flex justify-between items-center">
+      <div class="text-[1rem] sm:text-[1.2rem] flex items-center gap-3">
+        <Image src={AppWorksSchool} alt="AppWorks School" class="w-[3rem] h-[3rem] rounded-full" />
+        AppWorks School Campus Frontend trainee
+      </div>
+      <div class="text-[1rem] sm:text-[1.2rem] text-[#bdbdbd]">
+        Jul 2023 – Aug 2023
+      </div>
+    </div>
+  </div>
 </BaseLayout>
