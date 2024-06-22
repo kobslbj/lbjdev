@@ -44,7 +44,8 @@ h1 {
   position: absolute; 
   top: 70px; 
   left: 0;
-  height: 100vh;  
+  height: 100vh; 
+  z-index: 10;
 }
 
 .nav-links.expanded {
@@ -59,7 +60,7 @@ h1 {
   font-size: 1.2rem;
   font-weight: bold;
   text-transform: uppercase;
-  position: relative; /* 確保::after 位置相對於a元素 */
+  position: relative; 
 }
 
 .nav-links a::after {
@@ -80,7 +81,9 @@ h1 {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
-
+.expanded {
+  display: unset;
+}
 .footer {
   display: flex;
   height: 100px;
@@ -91,7 +94,43 @@ h1 {
   flex-direction: column;
   gap:10px;
 }
+.image-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
 
+.background-image {
+  width: 100%;
+  height: auto;
+  opacity: 0.7; 
+  border-radius: 10px;
+}
+
+.text-overlay {
+  width:80%;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  font-size: 1rem; 
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.text-overlay h1 {
+  margin: 0;
+  font-size: 1.2rem; 
+}
+
+.text-overlay p {
+  margin: 0.5rem 0;
+  font-size: 0.8rem; 
+  font-weight: normal;
+}
 @media screen and (min-width: 640px) {
   .nav-links {
     margin-left: 5em;
@@ -105,6 +144,29 @@ h1 {
 
   .nav-links a {
     display: inline-block;
-    padding: 15px 20px;
+    padding: 15px 15px;
+  }
+  .text-overlay {
+    width: 1000px;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    font-size: 1.3rem; 
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .text-overlay h1 {
+    margin: 0;
+    font-size: 1.8rem; 
+  }
+  
+  .text-overlay p {
+    margin: 0.5rem 0;
+    font-size: 1.2rem; 
+    font-weight: normal;
   }
 }

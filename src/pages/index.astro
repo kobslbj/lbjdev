@@ -1,9 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Greeting from '../components/Greeting';
+import { Image } from 'astro:assets';
+import home from '../assets/home.jpg';
 const pageTitle = "Home Page";
 ---
 <BaseLayout pageTitle={pageTitle}>
-  <h2>My awesome blog subtitle</h2>
-  <Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
+  <div class="image-container">
+    <Image src={home} decoding="async" loading="lazy" alt="welcome image" class="background-image" /> 
+    <div class="text-overlay">
+      <h1>Welcome to Justin's blog</h1>
+      <p>EAT SLEEP CODE REPEAT</p>
+    </div>
+  </div>
 </BaseLayout>
