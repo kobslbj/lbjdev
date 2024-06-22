@@ -5,7 +5,7 @@ import "../styles/global.css";
 const { pageTitle } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="en" class="bg-black">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -14,9 +14,9 @@ const { pageTitle } = Astro.props;
     <title>{pageTitle}</title>
   </head>
   <body>
-    <Header />
-    <div class="wrapper">
-      <div class="content">
+    <Header/>
+    <div class="min-h-full mb-[-50px]">
+      <div class="ml-[10%] mr-[10%] sm:pb-[50px] sm:ml-[15%] sm:mr-[15%] lg:ml-[25%] lg:mr-[25%]">
         <h1>{pageTitle}</h1>
         <slot />
       </div>

@@ -1,12 +1,21 @@
 ---
 import Hamburger from './Hamburger.astro';
 import Navigation from './Navigation.astro';
-import ThemeIcon from './ThemeIcon.astro';
+import { Image } from 'astro:assets';
+import logo from '../assets/logo.png';
 ---
-<header>
-  <nav>
+<header class="flex justify-between items-center pl-[10%] pr-[10%] sm:pl-[15%] sm:pr-[15%] lg:pl-[25%] lg:pr-[25%] pt-[10px] pb-[10px] border-b-1  border-[#141414] text-white">
+  <div class=" flex flex-row justify-center items-center gap-5">
+    <Image
+      src={logo}
+      width="50"
+      height="50"
+      decoding="async"
+      loading="lazy"
+      alt="logo"
+      class="logo"
+    />
+  </div>
     <Hamburger />
-    <ThemeIcon />
-    <Navigation />
-  </nav>
+  <Navigation />
 </header>

@@ -6,7 +6,14 @@ export default {
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'times': ['"Times New Roman"', 'Times', 'serif'],
+      },
+      backgroundImage: theme => ({
+        'black-gray-gradient': 'linear-gradient(to right, #000000, #808080)',
+      }),
+    },
   },
   darkMode: "class",
   plugins: [nextui()],

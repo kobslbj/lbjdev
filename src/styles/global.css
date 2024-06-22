@@ -1,16 +1,17 @@
 html {
-  background-color: #f1f5f9;
   font-family: sans-serif;
   height: 100%;
+  color: white;
 }
 
 body {
+  background-color: #000000;
   margin: 0 auto;
   width: 100%;
-  max-width: 80ch;
-  padding: 1rem;
   line-height: 1.5;
   height: 100%;
+  color: white;
+  padding: auto;
 }
 
 * {
@@ -22,85 +23,86 @@ h1 {
   font-size: 2.5rem;
 }
 
-/* nav styles */
-.hamburger {
-  padding-right: 20px;
-  cursor: pointer;
-}
-
 .hamburger .line {
   display: block;
   width: 40px;
   height: 5px;
+  margin-top: 10px;
   margin-bottom: 10px;
-  background-color: #ff9776;
+  background-color: #636363;
 }
+
 .nav-links {
   width: 100%;
-  top: 5rem;
-  left: 48px;
-  background-color: #ff9776;
-  display: none;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
   margin: 0;
+  display: none;
+  position: absolute; 
+  top: 70px; 
+  left: 0;
+  height: 100vh;  
+}
+
+.nav-links.expanded {
+  display: flex;
 }
 
 .nav-links a {
-  display: block;
+  justify-content: center;
   text-align: center;
   padding: 10px 0;
   text-decoration: none;
   font-size: 1.2rem;
   font-weight: bold;
   text-transform: uppercase;
+  position: relative; /* 確保::after 位置相對於a元素 */
 }
 
-.nav-links a:hover,
-.nav-links a:focus {
-  background-color: #ff9776;
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #636363;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
 }
 
-.expanded {
-  display: unset;
-}
-.wrapper {
-  min-height: 100%; /* 外層高度100% */
-  margin-bottom: -50px; /* 隨footer高度需做調整 */
-}
-
-.content {
-  padding-bottom: 50px; /* 避免文字超出瀏覽器時，內容區塊不會和footer打架 */
+.nav-links a:hover::after,
+.nav-links a:focus::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 .footer {
-  height:100px; 
+  display: flex;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #141414;
+  color: white;
 }
-@media screen and (min-width: 636px) {
+
+@media screen and (min-width: 640px) {
   .nav-links {
     margin-left: 5em;
     display: block;
     position: static;
     width: auto;
     background: none;
+    flex-direction: row;
+    height: auto;
   }
 
   .nav-links a {
     display: inline-block;
     padding: 15px 20px;
   }
-
-  .hamburger {
-    display: none;
-  }
-}
-html.dark {
-  background-color: #000000;
-  color: #fff;
-}
-
-.dark .nav-links a {
-  color: #fff;
-}
-.dark .footer {
-  background-color: #000000; 
-  color: white;
 }
