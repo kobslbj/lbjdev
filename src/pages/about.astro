@@ -1,8 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
+import nycu from '../assets/nyculogo.png';
 import Lndatalogo from '../assets/lndata_logo.jpg';
 import AppWorksSchool from '../assets/appworks.png';
+import ProjectBoard from '../components/ProjectBoard.astro';
+import Imfcamp from '../assets/imfcamp.png';
+import lab from '../assets/lab.png';
+import investment from '../assets/investment.png';
 const pageTitle = "About Me";
 ---
 
@@ -13,8 +18,23 @@ const pageTitle = "About Me";
     I enjoy sharing what I have learned, which is why I started this blog. 
     I hope it can help everyone. Feel free to join the discussion!
   </p>
-  <p class="font-bold text-[2rem] text-shadow mb-[1rem]">Experience</p>
-  <div class="flex flex-col gap-6">
+  <p class="font-bold text-[2rem] text-shadow mb-[1rem]">Education</p>
+  <div class="flex flex-col gap-6 mb-[3rem]">
+    <div class="flex justify-between items-center">
+      <div class="text-[1rem] sm:text-[1.2rem] flex items-center gap-3">
+        <Image class="bg-wghite" src={nycu} alt="LnData" class="w-[3rem] h-[3rem] rounded-full" />
+        <div>
+          <p>National Yang Ming Chiao Tung University </p>
+          <p class="text-[1rem] text-[#bdbdbd]">B.S. Information Management and Finance </p>
+        </div>
+      </div>
+      <div class="text-[1rem] sm:text-[1.2rem] text-[#bdbdbd]">
+        Sep 2021 – Now
+      </div>
+    </div>
+  </div>
+  <p class="font-bold text-[2rem] text-shadow mb-[2rem]">Experience</p>
+  <div class="flex flex-col gap-6 mb-[3rem]">
     <div class="flex justify-between items-center">
       <div class="text-[1rem] sm:text-[1.2rem] flex items-center gap-3">
         <Image src={Lndatalogo} alt="LnData" class="w-[3rem] h-[3rem] rounded-full" />
@@ -43,4 +63,27 @@ const pageTitle = "About Me";
       </div>
     </div>
   </div>
+  <p class="font-bold text-[2rem] text-shadow ">Project</p>
+  <ProjectBoard 
+    title="Lab Requirements Management" 
+    imageSrc={lab}
+    imageAlt="Lab Requirements Management"
+    description="This project involves managing lab requirements and has been using Next.js and Tailwind CSS."
+    githubLink="https://github.com/kobslbj/Lab_Requirements_Management"
+  />
+  <ProjectBoard 
+    title="IMFcamp website" 
+    imageSrc={Imfcamp}
+    imageAlt="IMFcamp website"
+    description="Integrated Google Analytics for data-driven insights, leading to over 1500 unique visitors"
+    githubLink="https://github.com/kobslbj/IMFcamp"
+    demoLink="https://imfcamp.com"
+  />
+  <ProjectBoard 
+    title="Investment Simulation" 
+    imageSrc={investment}
+    imageAlt="Investment Simulation"
+    description="Help newcomers to the stock market by providing a simulation platform where they can practice placing orders."
+    githubLink="https://github.com/kobslbj/Investment_Simulation"
+  />
 </BaseLayout>
