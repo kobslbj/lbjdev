@@ -10,7 +10,25 @@ const { frontmatter } = Astro.props;
       <p class="p-3  border border-[#4A4A4A] rounded-lg hover:bg-[#898681] transition duration-300"><a href={`/tags/${tag}`}># {tag}</a></p>
     ))}
   </div>
-  <div>
-    <hr class="my-4 border-t border-gray-400" />
+  <hr class="my-4 border-t border-gray-400" />
   <slot />
+  <!-- Giscus Comments -->
+  <div id="comments">
+    <script src="https://giscus.app/client.js"
+            data-repo="kobslbj/lbjdev"
+            data-repo-id="R_kgDOL6zDZA"
+            data-category="Announcements"
+            data-category-id="DIC_kwDOL6zDZM4CgTvt"
+            data-mapping="pathname"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="top"
+            data-theme="noborder_dark"
+            data-lang="en"
+            data-loading="lazy"
+            crossorigin="anonymous"
+            async>
+    </script>
+  </div>
 </BaseLayout>
