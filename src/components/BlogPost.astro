@@ -2,27 +2,16 @@
 interface Props {
   url: string;
   title: string;
+  date: string;
 }
-const { url, title } = Astro.props;
+const { url, title, date } = Astro.props;
 ---
 
-<article>
-  <h2><a href={url}>{title}</a></h2>
-</article>
-
-<style>
-  article {
-    margin-bottom: 1.5rem;
-  }
-  h2 {
-    font-size: 1.5rem;
-    margin: 0;
-  }
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
-</style>
+<div class="p-4 mb-4 border border-[#4A4A4A] rounded-lg hover:bg-[#898681] transition duration-300">
+  <h2 class="text-2xl font-semibold">
+    <a href={url} class="text-gray-300 hover:underline">{title}</a>
+  </h2>
+  <time datetime={date} class="block mt-2 text-gray-300 text-sm">
+    {new Date(date).toLocaleDateString()}
+  </time>
+</div>

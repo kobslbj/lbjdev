@@ -2,10 +2,11 @@ html {
   font-family: sans-serif;
   height: 100%;
   color: white;
+  background-color: #1F2124;
 }
 
 body {
-  background-color: #000000;
+  background-color: #1F2124;
   margin: 0 auto;
   width: 100%;
   line-height: 1.5;
@@ -34,7 +35,7 @@ h1 {
 
 .nav-links {
   width: 100%;
-  background-color: black;
+  background-color: #1F2124;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -85,11 +86,12 @@ h1 {
   display: unset;
 }
 .footer {
+  background-color: #1F2124;
   display: flex;
   height: 100px;
   justify-content: center;
   align-items: center;
-  border-top: 1px solid #141414;
+  border-top: 1px solid #4A4A4A;
   color: white;
   flex-direction: column;
   gap:10px;
