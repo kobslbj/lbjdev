@@ -3,37 +3,14 @@ import BaseLayout from './BaseLayout.astro';
 const { frontmatter } = Astro.props;
 ---
 <BaseLayout pageTitle={frontmatter.title}>
-  <p><em>{frontmatter.description}</em></p>
-  <p>{frontmatter.pubDate.toString().slice(0,10)}</p>
-
-  <p>Written by: {frontmatter.author}</p>
-
-  <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
-
-  <div class="tags">
+  <p class="font-bold text-3xl mt-[3rem] mb-[1rem]">{frontmatter.title}</p>
+  <p class="text-gray-300 mb-[1rem]">{frontmatter.pubDate.toString().slice(0,10)}</p>
+  <div class="flex gap-3">
     {frontmatter.tags.map((tag) => (
-      <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
+      <p class="p-3  border border-[#4A4A4A] rounded-lg hover:bg-[#898681] transition duration-300"><a href={`/tags/${tag}`}># {tag}</a></p>
     ))}
   </div>
-
+  <div>
+    <hr class="my-4 border-t border-gray-400" />
   <slot />
 </BaseLayout>
-<style>
-  a {
-    color: #00539F;
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .tag {
-    margin: 0.25em;
-    border: dotted 1px #a1a1a1;
-    border-radius: .5em;
-    padding: .5em 1em;
-    font-size: 1.15em;
-    background-color: #F8FCFD;
-  }
-</style>

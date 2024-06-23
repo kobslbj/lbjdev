@@ -3,15 +3,17 @@ interface Props {
   url: string;
   title: string;
   date: string;
+  description:string;
 }
-const { url, title, date } = Astro.props;
+const { url, title, date, description} = Astro.props;
 ---
 
 <div class="p-4 mb-4 border border-[#4A4A4A] rounded-lg hover:bg-[#898681] transition duration-300">
   <h2 class="text-2xl font-semibold">
     <a href={url} class="text-gray-300 hover:underline">{title}</a>
   </h2>
-  <time datetime={date} class="block mt-2 text-gray-300 text-sm">
-    {new Date(date).toLocaleDateString()}
-  </time>
+  <p class="block mt-2 text-gray-300 text-sm">{description}</p>
+  <p  class="block mt-2 text-gray-300 text-sm">
+    {date.toString().slice(0, 10)}
+  </p>
 </div>

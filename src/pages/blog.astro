@@ -5,5 +5,5 @@ const allPosts = await Astro.glob('./posts/*.md');
 const pageTitle = "Blog Page";
 ---
 <BaseLayout pageTitle={pageTitle}>
-    {allPosts.reverse().map((post) => <BlogPost url={post.url} title={post.frontmatter.title} date={post.frontmatter.pubDate} />)}
+    {allPosts.reverse().map((post) => <BlogPost url={post.url} title={post.frontmatter.title} date={post.frontmatter.pubDate} description={post.frontmatter.description}/>)}
 </BaseLayout>
