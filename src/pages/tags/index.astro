@@ -1,25 +1,31 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-const allPosts = await Astro.glob('../posts/*.md');
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const allPosts = await getCollection("posts");
 
 const tagCounts = allPosts.reduce((acc, post) => {
-  post.frontmatter.tags.forEach(tag => {
-    if (acc[tag]) {
-      acc[tag] += 1;
-    } else {
-      acc[tag] = 1;
-    }
-  });
+  const tags = post.data.tags; // 確保獲取到正確的 tags 屬性
+  if (tags) {
+    tags.forEach(tag => {
+      if (acc[tag]) {
+        acc[tag] += 1;
+      } else {
+        acc[tag] = 1;
+      }
+    });
+  }
   return acc;
 }, {});
 
 const pageTitle = "Tag Index";
 ---
+
 <BaseLayout pageTitle={pageTitle}>
   <div class="flex flex-col gap-2">
     {Object.entries(tagCounts).map(([tag, count]) => (
-      <p class="p-3  border border-[#4A4A4A] rounded-lg hover:bg-[#898681] transition duration-300">
-        <a href={`/tags/${tag}`}>{tag}  ({count} articles)</a>
+      <p class="p-3 border border-[#4A4A4A] rounded-lg hover:bg-[#898681] transition duration-300">
+        <a href={`/tags/${tag}`}>{tag} ({count} articles)</a>
       </p>
     ))}
   </div>

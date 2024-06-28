@@ -2,16 +2,21 @@
 import BaseLayout from './BaseLayout.astro';
 const { frontmatter } = Astro.props;
 ---
+
 <BaseLayout pageTitle={frontmatter.title}>
   <p class="font-bold text-3xl mt-[3rem] mb-[1rem]">{frontmatter.title}</p>
-  <p class="text-gray-300 mb-[1rem]">{frontmatter.pubDate.toString().slice(0,10)}</p>
+  <p class="text-gray-300 mb-[1rem]">{frontmatter.pubDate.toString().slice(0, 10)}</p>
   <div class="flex gap-3">
     {frontmatter.tags.map((tag) => (
-      <p class="p-3  border border-[#4A4A4A] rounded-lg hover:bg-[#898681] transition duration-300"><a href={`/tags/${tag}`}># {tag}</a></p>
+      <p class="p-3 border border-[#4A4A4A] rounded-lg hover:bg-[#898681] transition duration-300">
+        <a href={`/tags/${tag}`}># {tag}</a>
+      </p>
     ))}
   </div>
   <hr class="my-4 border-t border-gray-400" />
+  
   <slot />
+
   <!-- Giscus Comments -->
   <div id="comments">
     <script src="https://giscus.app/client.js"
