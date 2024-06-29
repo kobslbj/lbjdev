@@ -21,13 +21,49 @@ body {
 
 h1 {
   margin: 1rem 0;
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 
 h2 {
   margin: 1rem 0;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  color: white;
+}
 
+h3 {
+  margin: 1rem 0;
+  font-size: 1.3rem;
+  color: white;
+}
+
+p {
+  line-height: 1.8;
+  color:#bdbdbd;
+}
+
+
+li {
+  line-height: 1.8;
+}
+
+pre{
+  padding: 1em 1em;
+  background-color: #24292e;
+  border-radius: 0.5rem;
+  font-weight: 400;
+}
+
+a:hover {
+  color: white; 
+  text-decoration: underline; 
+}
+
+img {
+  border: 1px solid #24292e;
+  border-radius: 8px;
+  width: 100%;
+  height: 50%;
+  flex-wrap: nowrap;
 }
 
 .hamburger .line {
