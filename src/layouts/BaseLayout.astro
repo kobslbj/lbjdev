@@ -13,6 +13,15 @@ import { ViewTransitions } from 'astro:transitions';
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
+    <!-- Google tag (gtag.js) -->
+    <script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-3L2KPBSX6N"></script>
+    <script type="text/partytown" >
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3L2KPBSX6N');
+    </script>
     <ViewTransitions />
   </head>
   <body>
