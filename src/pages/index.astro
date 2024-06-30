@@ -5,11 +5,13 @@ import home from '../assets/home.jpg';
 const pageTitle = "Justin's Blog";
 ---
 <BaseLayout pageTitle={pageTitle}>
-  <div class="image-container">
-    <Image src={home} decoding="async" loading="lazy" alt="welcome image" class="background-image" /> 
-    <div class="text-overlay">
-      <h1>Welcome to Justin's blog</h1>
-      <p>EAT SLEEP CODE REPEAT</p>
+  <a href="/blog/">
+    <div class="image-container" >
+      <Image src={home} decoding="async" loading="lazy" alt="welcome image" class="background-image" /> 
+      <div class="text-overlay">
+        <h1>Welcome to Justin's blog</h1>
+        <p>EAT SLEEP CODE REPEAT</p>
+      </div>
     </div>
-  </div>
+  </a>
 </BaseLayout>
