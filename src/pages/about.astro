@@ -8,6 +8,7 @@ import ProjectBoard from '../components/ProjectBoard.astro';
 import Imfcamp from '../assets/imfcamp.png';
 import lab from '../assets/lab.png';
 import investment from '../assets/investment.png';
+import gdsc from '../assets/gdsc.png';
 const pageTitle = "About Me";
 ---
 
@@ -37,11 +38,20 @@ const pageTitle = "About Me";
   <div class="flex flex-col gap-6 mb-[3rem]">
     <div class="flex justify-between items-center">
       <div class="text-[1rem] sm:text-[1.2rem] flex items-center gap-3">
+        <Image src={gdsc} alt="GDSC" class="w-[3rem] h-[3rem] rounded-full" />
+        NYCU GDSC Tech Team - Full Stack Lead 
+      </div>
+       <div class="text-[1rem] sm:text-[1.2rem] text-[#bdbdbd]">
+        Sep 2023 – Now
+      </div>
+    </div> 
+    <div class="flex justify-between items-center">
+      <div class="text-[1rem] sm:text-[1.2rem] flex items-center gap-3">
         <Image src={Lndatalogo} alt="LnData" class="w-[3rem] h-[3rem] rounded-full" />
         LnData web development intern 
       </div>
        <div class="text-[1rem] sm:text-[1.2rem] text-[#bdbdbd]">
-        Jan 2024 – Now
+        Jan 2024 – Aug 2024
       </div>
     </div>
     <div class="flex justify-between items-center">
