@@ -11,5 +11,12 @@ export default defineConfig({
       forward: ["dataLayer.push"],
     },
   }),],
-  site: "https://kobslbj.dev"
+  site: "https://kobslbj.dev",
+  markdown: {
+    remarkPlugins: ['remark-gfm'],
+    extendDefaultPlugins: true,
+    shikiConfig: {
+      theme: 'dark-plus'
+    }
+  }
 });
