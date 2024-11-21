@@ -9,91 +9,106 @@ import Imfcamp from '../assets/imfcamp.png';
 import lab from '../assets/lab.png';
 import investment from '../assets/investment.png';
 import gdsc from '../assets/gdsc.png';
+import appier from '../assets/AppierLogo.png';
 const pageTitle = "About Me";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <p class="font-bold text-[2rem] text-shadow mb-[1rem]">About me</p>
-  <p class="text-[1.2rem] text-[#bdbdbd] mb-[3rem]">
+  <p class="font-bold text-2xl md:text-4xl text-shadow mb-4 md:mb-6">About me</p>
+  <p class="text-base md:text-xl text-[#bdbdbd] mb-8 md:mb-12">
     Hi, I'm Justin. I'm a full-stack engineer, especially love frontend development. 
     I enjoy sharing what I have learned, which is why I started this blog. 
     I hope it can help everyone. Feel free to join the discussion!
   </p>
-  <p class="font-bold text-[2rem] text-shadow mb-[1rem]">Education</p>
-  <div class="flex flex-col gap-6 mb-[3rem]">
-    <div class="flex justify-between items-center">
-      <div class="text-[1rem] sm:text-[1.2rem] flex items-center gap-3">
-        <Image class="bg-wghite" src={nycu} alt="LnData" class="w-[3rem] h-[3rem] rounded-full" />
+  <p class="font-bold text-2xl md:text-4xl text-shadow mb-4 md:mb-6">Education</p>
+  <div class="flex flex-col gap-4 md:gap-6 mb-8 md:mb-12">
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0">
+      <div class="text-sm md:text-lg flex items-center gap-3">
+        <Image src={nycu} alt="NYCU" class="w-12 h-12 md:w-16 md:h-16 rounded-full" />
         <div>
-          <p>National Yang Ming Chiao Tung University </p>
-          <p class="text-[1rem] text-[#bdbdbd]">B.S. Information Management and Finance </p>
+          <p class="font-medium">National Yang Ming Chiao Tung University</p>
+          <p class="text-sm md:text-base text-[#bdbdbd]">B.S. Information Management and Finance</p>
         </div>
       </div>
-      <div class="text-[1rem] sm:text-[1.2rem] text-[#bdbdbd]">
+      <div class="text-sm md:text-base text-[#bdbdbd]">
         Sep 2021 – Now
       </div>
     </div>
   </div>
-  <p class="font-bold text-[2rem] text-shadow mb-[2rem]">Experience</p>
-  <div class="flex flex-col gap-6 mb-[3rem]">
-    <div class="flex justify-between items-center">
-      <div class="text-[1rem] sm:text-[1.2rem] flex items-center gap-3">
-        <Image src={gdsc} alt="GDSC" class="w-[3rem] h-[3rem] rounded-full" />
-        NYCU GDSC Tech Team - Full Stack Lead 
+  <p class="font-bold text-2xl md:text-4xl text-shadow mb-4 md:mb-6">Experience</p>
+  <div class="flex flex-col gap-4 md:gap-6 mb-8 md:mb-12">
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0">
+      <div class="text-sm md:text-lg flex items-center gap-3">
+        <Image src={appier} alt="GDSC" class="w-12 h-12 md:w-16 md:h-16 rounded-full" />
+        <span class="font-medium">Appier Technical Solutions Intern</span>
       </div>
-       <div class="text-[1rem] sm:text-[1.2rem] text-[#bdbdbd]">
-        Sep 2023 – Now
+      <div class="text-sm md:text-base text-[#bdbdbd]">
+        Nov 2024 – Now
       </div>
-    </div> 
-    <div class="flex justify-between items-center">
-      <div class="text-[1rem] sm:text-[1.2rem] flex items-center gap-3">
-        <Image src={Lndatalogo} alt="LnData" class="w-[3rem] h-[3rem] rounded-full" />
-        LnData web development intern 
+    </div>
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0">
+      <div class="text-sm md:text-lg flex items-center gap-3">
+        <Image src={gdsc} alt="GDSC" class="w-12 h-12 md:w-16 md:h-16 rounded-full" />
+        <span class="font-medium">NYCU GDSC Tech Team - Full Stack Lead</span>
       </div>
-       <div class="text-[1rem] sm:text-[1.2rem] text-[#bdbdbd]">
+      <div class="text-sm md:text-base text-[#bdbdbd]">
+        Sep 2024 – Now
+      </div>
+    </div>
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0">
+      <div class="text-sm md:text-lg flex items-center gap-3">
+        <Image src={Lndatalogo} alt="LnData" class="w-12 h-12 md:w-16 md:h-16 rounded-full" />
+        <span class="font-medium">LnData Web Development Intern</span>
+      </div>
+      <div class="text-sm md:text-base text-[#bdbdbd]">
         Jan 2024 – Aug 2024
       </div>
     </div>
-    <div class="flex justify-between items-center">
-      <div class="text-[1rem] sm:text-[1.2rem] flex items-center gap-3">
-        <Image src={AppWorksSchool} alt="AppWorks School" class="w-[3rem] h-[3rem] rounded-full" />
-        AppWorks School Campus Backend trainee
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0">
+      <div class="text-sm md:text-lg flex items-center gap-3">
+        <Image src={AppWorksSchool} alt="AppWorks School" class="w-12 h-12 md:w-16 md:h-16 rounded-full" />
+        <span class="font-medium">AppWorks School Campus Backend trainee</span>
       </div>
-      <div class="text-[1rem] sm:text-[1.2rem] text-[#bdbdbd]">
+      <div class="text-sm md:text-base text-[#bdbdbd]">
         Sep 2023 – Jan 2024
       </div>
     </div>
-    <div class="flex justify-between items-center">
-      <div class="text-[1rem] sm:text-[1.2rem] flex items-center gap-3">
-        <Image src={AppWorksSchool} alt="AppWorks School" class="w-[3rem] h-[3rem] rounded-full" />
-        AppWorks School Campus Frontend trainee
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0">
+      <div class="text-sm md:text-lg flex items-center gap-3">
+        <Image src={AppWorksSchool} alt="AppWorks School" class="w-12 h-12 md:w-16 md:h-16 rounded-full" />
+        <span class="font-medium">AppWorks School Campus Frontend trainee</span>
       </div>
-      <div class="text-[1rem] sm:text-[1.2rem] text-[#bdbdbd]">
+      <div class="text-sm md:text-base text-[#bdbdbd]">
         Jul 2023 – Aug 2023
       </div>
     </div>
   </div>
-  <p class="font-bold text-[2rem] text-shadow ">Project</p>
-  <ProjectBoard 
-    title="Lab Requirements Management" 
-    imageSrc={lab}
-    imageAlt="Lab Requirements Management"
-    description="This project involves managing lab requirements and has been using Next.js and Tailwind CSS."
-    githubLink="https://github.com/kobslbj/Lab_Requirements_Management"
-  />
-  <ProjectBoard 
-    title="IMFcamp website" 
-    imageSrc={Imfcamp}
-    imageAlt="IMFcamp website"
-    description="Integrated Google Analytics for data-driven insights, leading to over 1500 unique visitors"
-    githubLink="https://github.com/kobslbj/IMFcamp"
-    demoLink="https://imfcamp.com"
-  />
-  <ProjectBoard 
-    title="Investment Simulation" 
-    imageSrc={investment}
-    imageAlt="Investment Simulation"
-    description="Help newcomers to the stock market by providing a simulation platform where they can practice placing orders."
-    githubLink="https://github.com/kobslbj/Investment_Simulation"
-  />
+  <p class="font-bold text-2xl md:text-4xl text-shadow mb-2 md:mb-4">Project</p>
+  <div class="grid gap-6 md:gap-8">
+    <ProjectBoard 
+      title="Lab Requirements Management" 
+      imageSrc={lab}
+      imageAlt="Lab Requirements Management"
+      description="This project involves managing lab requirements and has been using Next.js and Tailwind CSS."
+      githubLink="https://github.com/kobslbj/Lab_Requirements_Management"
+      class="w-full"
+    />
+    <ProjectBoard 
+      title="IMFcamp website" 
+      imageSrc={Imfcamp}
+      imageAlt="IMFcamp website"
+      description="Integrated Google Analytics for data-driven insights, leading to over 1500 unique visitors"
+      githubLink="https://github.com/kobslbj/IMFcamp"
+      demoLink="https://imfcamp.com"
+      class="w-full"
+    />
+    <ProjectBoard 
+      title="Investment Simulation" 
+      imageSrc={investment}
+      imageAlt="Investment Simulation"
+      description="Help newcomers to the stock market by providing a simulation platform where they can practice placing orders."
+      githubLink="https://github.com/kobslbj/Investment_Simulation"
+      class="w-full"
+    />
+  </div>
 </BaseLayout>
