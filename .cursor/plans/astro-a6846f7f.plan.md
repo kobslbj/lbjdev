@@ -1,4 +1,5 @@
 <!-- a6846f7f-ab37-4981-90b8-66b707d2d58e 91172bac-87a9-4321-8962-22b62714f893 -->
+
 # 修復 Header 手機選單僅首次載入可用的問題
 
 ## 問題描述
@@ -30,31 +31,34 @@ import "../scripts/menu.js";
 
 </script>
 
-````
+```
 
 ## 將要做的變更
-1) 強化重新綁定邏輯（menu.js）
+
+1. 強化重新綁定邏輯（menu.js）
+
 - 監聽 `astro:page-load` 與 `astro:after-swap` 兩個事件，於每次換頁完成後呼叫 `setup()` 重新綁定。
 - 增加防呆與具冪等操作（使用 `onclick =` 覆蓋，避免重複註冊）。
 
 示意：
+
 ```js
 function setup() {
-  const hamburger = document.querySelector('.hamburger');
-  const nav = document.querySelector('.nav-links');
+  const hamburger = document.querySelector(".hamburger");
+  const nav = document.querySelector(".nav-links");
   if (!hamburger || !nav) return;
-  hamburger.onclick = () => nav.classList.toggle('expanded');
+  hamburger.onclick = () => nav.classList.toggle("expanded");
 }
-['astro:page-load','astro:after-swap'].forEach(evt =>
-  document.addEventListener(evt, setup)
+["astro:page-load", "astro:after-swap"].forEach((evt) =>
+  document.addEventListener(evt, setup),
 );
-````
+```
 
-2) 穩定引入腳本（BaseLayout）
+2. 穩定引入腳本（BaseLayout）
 
 - 改為：`<script type="module" src="/src/scripts/menu.js"></script>`
 
-3) 驗證
+3. 驗證
 
 - 在手機尺寸／桌機尺寸切換，以及從 `/about`、`/blog` 返回 `/` 後，點擊漢堡選單皆能開合。
 
