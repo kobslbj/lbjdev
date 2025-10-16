@@ -1,9 +1,11 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 const { frontmatter } = Astro.props;
+const canonicalUrl = new URL(Astro.url, Astro.site).toString();
+const ogImage = new URL(frontmatter.image ?? '/images/justinCover.jpg', Astro.site).toString();
 ---
 
-<BaseLayout pageTitle={frontmatter.title}>
+<BaseLayout pageTitle={frontmatter.title} pageDescription={frontmatter.description} pageImage={ogImage}>
   <article class="prose prose-invert">
     <div>
       <p class="font-bold text-3xl mt-[3rem] mb-[1rem]">{frontmatter.title}</p>

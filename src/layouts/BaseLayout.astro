@@ -2,17 +2,55 @@
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import "../styles/global.css";
-const { pageTitle } = Astro.props;
 import { ViewTransitions } from 'astro:transitions';
+
+const { pageTitle, pageDescription, pageImage } = Astro.props;
+const siteTitle = 'Justin Li Blog';
+const defaultDescription = 'Justin Li Blog — 分享軟體開發、和我的創業經歷';
+const seoTitle = pageTitle ? `${pageTitle} | ${siteTitle}` : siteTitle;
+const canonicalUrl = new URL(Astro.url, Astro.site).toString();
+const ogImage = new URL(pageImage ?? '/images/justinCover.jpg', Astro.site).toString();
 ---
 
-<html lang="en" class="bg-[#0F1419]">
+<html lang="zh-TW" class="bg-[#0F1419]">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
+    <title>{seoTitle}</title>
+    <meta name="description" content={pageDescription ?? defaultDescription} />
+    <link rel="canonical" href={canonicalUrl} />
+    <!-- Open Graph / Twitter fallbacks -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteTitle} />
+    <meta property="og:locale" content="zh_TW" />
+    <meta property="og:title" content={seoTitle} />
+    <meta property="og:description" content={pageDescription ?? defaultDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={seoTitle} />
+    <meta name="twitter:description" content={pageDescription ?? defaultDescription} />
+    <meta name="twitter:image" content={ogImage} />
+    <!-- JSON-LD: WebSite -->
+    <script type="application/ld+json">
+      {JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: siteTitle,
+        url: Astro.site,
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: 'https://kobslbj.dev/?q={search_term_string}',
+          'query-input': 'required name=search_term_string'
+        }
+      })}
+    </script>
+    <!-- JSON-LD: Person -->
+    <script type="application/ld+json">
+      {JSON.stringify({ '@context': 'https://schema.org', '@type': 'Person', name: 'Justin Li', url: Astro.site })}
+    </script>
     <!-- Google tag (gtag.js) -->
     <script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-3L2KPBSX6N"></script>
     <script type="text/partytown" >
