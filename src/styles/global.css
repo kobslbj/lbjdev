@@ -3,6 +3,14 @@ html {
   height: 100%;
   color: #e6edf3;
   background-color: #0f1419;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  background: transparent;
 }
 
 body {
