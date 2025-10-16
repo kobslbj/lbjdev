@@ -1,17 +1,181 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
-import home from '../assets/home.jpg';
+import justinAvatar from '../../public/images/justinCover.jpg';
 const pageTitle = "Justin's Blog";
 ---
+
 <BaseLayout pageTitle={pageTitle}>
-  <a href="/blog/">
-    <div class="image-container" >
-      <Image src={home} decoding="async" loading="lazy" alt="welcome image" class="background-image" /> 
-      <div class="text-overlay">
-        <h1>Welcome to Justin's blog</h1>
-        <p>EAT SLEEP CODE REPEAT</p>
-      </div>
+  <div class="chat-container max-w-4xl mx-auto flex flex-col h-[calc(100vh-200px)] min-h-[600px]">
+    <!-- Chat Messages Area -->
+    <div id="chatMessages" class="chat-messages flex-1 overflow-y-auto py-6 space-y-4 mt-8">
+      <!-- Messages will be added dynamically via streaming -->
     </div>
-  </a>
+  </div>
 </BaseLayout>
+
+<script>
+
+  async function addMessageWithStreaming(text: string, isUser: boolean) {
+    const messagesContainer = document.getElementById('chatMessages');
+    if (!messagesContainer) return;
+
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'} flex gap-3 animate-fadeIn ${isUser ? 'flex-row-reverse' : ''}`;
+
+    const avatar = document.createElement('div');
+    avatar.className = `avatar w-10 h-10 rounded-full ${isUser ? 'bg-[#2A2D32]' : 'overflow-hidden border-2 border-[#58A6FF]'} flex items-center justify-center text-white font-bold flex-shrink-0`;
+
+    if (isUser) {
+      avatar.textContent = 'U';
+    } else {
+      const img = document.createElement('img');
+      img.src = '/images/justinCover.jpg';
+      img.alt = 'Justin';
+      img.className = 'w-full h-full object-cover';
+      avatar.appendChild(img);
+    }
+
+    const content = document.createElement('div');
+    content.className = `message-content ${isUser ? 'bg-[#58A6FF]' : 'bg-[#1C2128]'} rounded-2xl ${isUser ? 'rounded-tr-sm' : 'rounded-tl-sm'} px-5 py-3 max-w-[80%] ${!isUser ? 'border border-[#2A2D32]' : ''}`;
+
+    const textP = document.createElement('p');
+    textP.className = 'text-[#E6EDF3]';
+
+    content.appendChild(textP);
+    messageDiv.appendChild(avatar);
+    messageDiv.appendChild(content);
+
+    messagesContainer.appendChild(messageDiv);
+
+    // Streaming effect - type character by character
+    if (!isUser) {
+      const words = text.split(' ');
+      for (let i = 0; i < words.length; i++) {
+        if (i > 0) textP.textContent += ' ';
+        textP.textContent += words[i];
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+        // Random delay between words (20-50ms for smooth streaming)
+        await new Promise(resolve => setTimeout(resolve, Math.random() * 30 + 20));
+      }
+    } else {
+      textP.textContent = text;
+    }
+
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  }
+
+  function showTypingIndicator() {
+    const messagesContainer = document.getElementById('chatMessages');
+    if (!messagesContainer) return;
+
+    const typingDiv = document.createElement('div');
+    typingDiv.id = 'typingIndicator';
+    typingDiv.className = 'message bot-message flex gap-3';
+    typingDiv.innerHTML = `
+      <div class="avatar w-10 h-10 rounded-full overflow-hidden border-2 border-[#58A6FF] flex-shrink-0">
+        <img src="/images/justinCover.jpg" alt="Justin" class="w-full h-full object-cover" />
+      </div>
+      <div class="message-content bg-[#1C2128] rounded-2xl rounded-tl-sm px-5 py-3 border border-[#2A2D32]">
+        <div class="flex gap-1">
+          <div class="w-2 h-2 bg-[#8B949E] rounded-full animate-bounce" style="animation-delay: 0s"></div>
+          <div class="w-2 h-2 bg-[#8B949E] rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+          <div class="w-2 h-2 bg-[#8B949E] rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
+        </div>
+      </div>
+    `;
+
+    messagesContainer.appendChild(typingDiv);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  }
+
+  function removeTypingIndicator() {
+    const typingIndicator = document.getElementById('typingIndicator');
+    if (typingIndicator) typingIndicator.remove();
+  }
+
+  // Auto-play messages on page load
+  const autoMessages = [
+    {
+      text: "嗨！我是 Justin，目前正在創業，夢想是打造能讓世界變得更好的產品。我目前正在創業的路上，如果你也在創業或對新創世界有興趣，歡迎一起交流想法！",
+      delay: 0
+    },
+    {
+      text: "Herewegoal 是我第一個創業的 SaaS 產品，但我失敗了。這段經歷讓我學到很多寶貴的教訓。如果你想了解更多關於創業失敗的心得，歡迎到我的 Blog 閱讀完整分享。",
+      delay: 1000
+    },
+  ];
+
+  async function playAutoMessages() {
+    for (const msg of autoMessages) {
+      // Wait for the delay
+      await new Promise(resolve => setTimeout(resolve, msg.delay));
+
+      // Show typing indicator
+      showTypingIndicator();
+
+      // Wait a bit
+      await new Promise(resolve => setTimeout(resolve, 1000 + Math.random() * 500));
+
+      // Remove typing indicator and stream message
+      removeTypingIndicator();
+      await addMessageWithStreaming(msg.text, false);
+    }
+  }
+
+  // Prevent multiple executions
+  let hasStarted = false;
+
+  // Function to start the chat
+  function startChat() {
+    if (hasStarted) return; // Prevent duplicate execution
+    hasStarted = true;
+
+    setTimeout(() => {
+      playAutoMessages();
+    }, 1000);
+  }
+
+  // Handle both regular page load and Astro view transitions
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', startChat);
+  } else {
+    // DOM is already loaded
+    startChat();
+  }
+</script>
+
+<style>
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .chat-messages::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .chat-messages::-webkit-scrollbar-track {
+    background: #0F1419;
+  }
+
+  .chat-messages::-webkit-scrollbar-thumb {
+    background: #2A2D32;
+    border-radius: 4px;
+  }
+
+  .chat-messages::-webkit-scrollbar-thumb:hover {
+    background: #58A6FF;
+  }
+</style>
