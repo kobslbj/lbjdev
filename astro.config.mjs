@@ -3,6 +3,10 @@ import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
 import partytown from '@astrojs/partytown'
 import preact from "@astrojs/preact";
+import remarkGfm from 'remark-gfm';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeExternalLinks from 'rehype-external-links';
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,7 +17,12 @@ export default defineConfig({
   }),],
   site: "https://kobslbj.dev",
   markdown: {
-    remarkPlugins: ['remark-gfm'],
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [
+      rehypeSlug,
+      [rehypeAutolinkHeadings, { behavior: 'wrap' }],
+      [rehypeExternalLinks, { rel: ['nofollow','noopener','noreferrer'], target: '_blank' }],
+    ],
     extendDefaultPlugins: true,
     shikiConfig: {
       theme: 'dark-plus'

@@ -45,3 +45,11 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+## Markdown authoring guide (blog)
+
+- Use ASCII hyphen for unordered lists: `- item` (hyphen + space)
+- Ordered lists use `1.` `2.` `3.` (dot, not semicolon or parenthesis)
+- Leave a blank line before and after lists to ensure proper parsing
+- To show literal text "- 1" instead of a list, escape the hyphen: `\- 1` or wrap in backticks
+- Prefer standard punctuation and half-width spaces; avoid full-width characters in list markers

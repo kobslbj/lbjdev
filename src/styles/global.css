@@ -69,6 +69,12 @@ img {
   flex-wrap: nowrap;
 }
 
+/* Fallback spacing for lists if typography plugin not loaded */
+ul, ol {
+  margin: 1em 0;
+  padding-left: 1.25em;
+}
+
 .hamburger .line {
   display: block;
   width: 40px;

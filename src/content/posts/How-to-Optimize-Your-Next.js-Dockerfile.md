@@ -1,7 +1,7 @@
 ---
 title: 'How to Optimize Your Next.js Dockerfile'
 pubDate: 2024-06-27
-description: 'React component detail'
+description: '分享如何優化 Next.js Dockerfile 的技巧，包括選擇合適的 base image、使用 multi-stage builds 和 standalone application'
 tags: ["Docker"]
 ---
 As I’ve been writing Dockerfiles for my Next.js projects, I’ve noticed that the build size can be quite large. Today, I want to share three strategies to optimize your Dockerfile and reduce the overall image size.
