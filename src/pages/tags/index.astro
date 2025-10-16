@@ -24,8 +24,8 @@ const pageTitle = "Tag Index";
 <BaseLayout pageTitle={pageTitle}>
   <div class="flex flex-col gap-2">
     {Object.entries(tagCounts).map(([tag, count]) => (
-      <p class="p-3 border border-[#4A4A4A] rounded-lg hover:bg-[#898681] transition duration-300">
-        <a href={`/tags/${tag}`}>{tag} ({count} articles)</a>
+      <p class="p-3 border border-[#2A2D32] rounded-lg hover:bg-[#1C2128] hover:border-[#58A6FF] transition duration-300">
+        <a href={`/tags/${tag}`} class="text-[#E6EDF3] hover:text-[#58A6FF]">{tag} ({count} articles)</a>
       </p>
     ))}
   </div>

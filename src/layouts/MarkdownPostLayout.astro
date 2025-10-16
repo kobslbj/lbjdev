@@ -7,23 +7,23 @@ const { frontmatter } = Astro.props;
   <article class="prose prose-invert mx-auto my-20">
     <div>
       <p class="font-bold text-3xl mt-[3rem] mb-[1rem]">{frontmatter.title}</p>
-      <p class="text-gray-300 mb-[1rem]">
+      <p class="text-[#8B949E] mb-[1rem]">
         {new Date(frontmatter.pubDate).toDateString().split(' ').slice(1, 3).join(' ') + ' ' + new Date(frontmatter.pubDate).getFullYear()}
       </p>
       <div class="flex gap-3">
         {frontmatter.tags.map((tag) => (
-          <p class="p-3 border border-[#4A4A4A] rounded-lg hover:bg-[#464544] transition duration-300">
-            <a href={`/tags/${tag}`}># {tag}</a>
+          <p class="p-3 border border-[#2A2D32] rounded-lg hover:bg-[#1C2128] hover:border-[#58A6FF] transition duration-300">
+            <a href={`/tags/${tag}`} class="text-[#58A6FF] hover:text-[#79C0FF]"># {tag}</a>
           </p>
         ))}
       </div>
-      <hr class="my-4 border-t border-gray-400" />
+      <hr class="my-4 border-t border-[#2A2D32]" />
       <slot />
     </div>
   </article>
   <!-- Giscus Comments -->
   <div id="comments">
-    <script src="https://giscus.app/client.js"
+    <script is:inline src="https://giscus.app/client.js"
             data-repo="kobslbj/lbjdev"
             data-repo-id="R_kgDOL6zDZA"
             data-category="Announcements"

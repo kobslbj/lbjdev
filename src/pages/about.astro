@@ -4,24 +4,27 @@ import { Image } from 'astro:assets';
 import nycu from '../assets/nyculogo.png';
 import Lndatalogo from '../assets/lndata_logo.jpg';
 import AppWorksSchool from '../assets/appworks.png';
-import ProjectBoard from '../components/ProjectBoard.astro';
-import Imfcamp from '../assets/imfcamp.png';
-import lab from '../assets/lab.png';
-import investment from '../assets/investment.png';
 import gdsc from '../assets/gdsc.png';
 import appier from '../assets/AppierLogo.png';
+import jgp from '../assets/jgp.png';
 const pageTitle = "About Me";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <p class="font-bold text-2xl md:text-4xl text-shadow mb-4 md:mb-6">About me</p>
-  <p class="text-base md:text-xl text-[#bdbdbd] mb-8 md:mb-12">
-    Hi, I'm Justin. I'm a full-stack engineer, especially love frontend development. 
-    I enjoy sharing what I have learned, which is why I started this blog. 
-    I hope it can help everyone. Feel free to join the discussion!
-  </p>
   <p class="font-bold text-2xl md:text-4xl text-shadow mb-4 md:mb-6">Education</p>
   <div class="flex flex-col gap-4 md:gap-6 mb-8 md:mb-12">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0">
+      <div class="text-sm md:text-lg flex items-center gap-3">
+        <Image src={nycu} alt="NYCU" class="w-12 h-12 md:w-16 md:h-16 rounded-full" />
+        <div>
+          <p class="font-medium">National Yang Ming Chiao Tung University</p>
+          <p class="text-sm md:text-base text-[#bdbdbd]">M.S. Institute of Artificial Intelligence Innovation</p>
+        </div>
+      </div>
+      <div class="text-sm md:text-base text-[#bdbdbd]">
+        Quit school
+      </div>
+    </div>
     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0">
       <div class="text-sm md:text-lg flex items-center gap-3">
         <Image src={nycu} alt="NYCU" class="w-12 h-12 md:w-16 md:h-16 rounded-full" />
@@ -31,19 +34,28 @@ const pageTitle = "About Me";
         </div>
       </div>
       <div class="text-sm md:text-base text-[#bdbdbd]">
-        Sep 2021 – Now
+        Sep 2021 – Jun 2025
       </div>
     </div>
   </div>
   <p class="font-bold text-2xl md:text-4xl text-shadow mb-4 md:mb-6">Experience</p>
   <div class="flex flex-col gap-4 md:gap-6 mb-8 md:mb-12">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0">
+      <div class="text-sm md:text-lg flex items-center gap-3">
+        <Image src={jgp} alt="JGPLOGO" class="w-12 h-12 md:w-16 md:h-16 rounded-full" />
+        <span class="font-medium">Jamie's Gap Year Program #3</span>
+      </div>
+      <div class="text-sm md:text-base text-[#bdbdbd]">
+        Aug 2025 – Now
+      </div>
+    </div>
     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0">
       <div class="text-sm md:text-lg flex items-center gap-3">
         <Image src={appier} alt="GDSC" class="w-12 h-12 md:w-16 md:h-16 rounded-full" />
         <span class="font-medium">Appier Technical Solutions Intern</span>
       </div>
       <div class="text-sm md:text-base text-[#bdbdbd]">
-        Nov 2024 – Now
+        Nov 2024 – Jun 2025
       </div>
     </div>
     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0">
@@ -52,12 +64,12 @@ const pageTitle = "About Me";
         <span class="font-medium">NYCU GDSC Tech Team - Full Stack Lead</span>
       </div>
       <div class="text-sm md:text-base text-[#bdbdbd]">
-        Sep 2024 – Now
+        Sep 2024 – Jun 2025
       </div>
     </div>
     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0">
       <div class="text-sm md:text-lg flex items-center gap-3">
-        <Image src={Lndatalogo} alt="LnData" class="w-12 h-12 md:w-16 md:h-16 rounded-full" />
+      <Image src={Lndatalogo} alt="LnData" class="w-12 h-12 md:w-16 md:h-16 rounded-full" />
         <span class="font-medium">LnData Web Development Intern</span>
       </div>
       <div class="text-sm md:text-base text-[#bdbdbd]">
@@ -82,33 +94,5 @@ const pageTitle = "About Me";
         Jul 2023 – Aug 2023
       </div>
     </div>
-  </div>
-  <p class="font-bold text-2xl md:text-4xl text-shadow mb-2 md:mb-4">Project</p>
-  <div class="grid gap-6 md:gap-8">
-    <ProjectBoard 
-      title="Lab Requirements Management" 
-      imageSrc={lab}
-      imageAlt="Lab Requirements Management"
-      description="This project involves managing lab requirements and has been using Next.js and Tailwind CSS."
-      githubLink="https://github.com/kobslbj/Lab_Requirements_Management"
-      class="w-full"
-    />
-    <ProjectBoard 
-      title="IMFcamp website" 
-      imageSrc={Imfcamp}
-      imageAlt="IMFcamp website"
-      description="Integrated Google Analytics for data-driven insights, leading to over 1500 unique visitors"
-      githubLink="https://github.com/kobslbj/IMFcamp"
-      demoLink="https://imfcamp.com"
-      class="w-full"
-    />
-    <ProjectBoard 
-      title="Investment Simulation" 
-      imageSrc={investment}
-      imageAlt="Investment Simulation"
-      description="Help newcomers to the stock market by providing a simulation platform where they can practice placing orders."
-      githubLink="https://github.com/kobslbj/Investment_Simulation"
-      class="w-full"
-    />
   </div>
 </BaseLayout>

@@ -1,21 +1,11 @@
 ---
 import Hamburger from './Hamburger.astro';
 import Navigation from './Navigation.astro';
-import { Image } from 'astro:assets';
-import logo from '../assets/justin.png';
 ---
-<header class="flex justify-between items-center pl-[10%] pr-[10%] sm:pl-[15%] sm:pr-[15%] lg:pl-[25%] lg:pr-[25%] pt-[10px] pb-[10px] border-b-1 bg-opacity-50 border-[#4A4A4A] text-white">
-  <div class=" flex flex-row justify-center items-center gap-5 cursor-pointer">
-    <a href="/">
-      <Image
-        src={logo}
-        width="25"
-        height="25"
-        decoding="async"
-        loading="lazy"
-        alt="logo"
-        class="border-none"
-      />
+<header class="flex justify-between items-center pl-[10%] pr-[10%] sm:pl-[15%] sm:pr-[15%] lg:pl-[25%] lg:pr-[25%] pt-[10px] pb-[10px] border-b-1 bg-opacity-50 border-[#2A2D32] text-white">
+  <div class="flex flex-row justify-center items-center gap-5 cursor-pointer">
+    <a href="/" class="font-times text-xl sm:text-2xl font-semibold hover:text-gray-300 transition-colors duration-200">
+      Justin's Blog
     </a>
   </div>
     <Hamburger />
