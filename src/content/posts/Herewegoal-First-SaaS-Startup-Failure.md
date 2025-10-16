@@ -1,6 +1,6 @@
 ---
 title: 'Herewegoal 第一次 SaaS 創業失敗'
-pubDate: 2025-01-15
+pubDate: 2025-10-15
 description: '紀錄我第一次 SaaS 創業失敗的經驗，以及從《精實創業》和《從零到一》中學到的寶貴教訓'
 tags: ["創業", "SaaS", "失敗復盤", "產品開發"]
 ---
